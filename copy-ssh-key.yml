@@ -10,12 +10,11 @@
     - name: Add Entry to the Known Hosts
       shell: ssh-keyscan '{{ host }}' >> ~/.ssh/known_hosts
      
-    - name: Copy SSh Key | copying shh key to remote host
-      authorized_key:
-        user: root
-        state: present
-        key: "{{ lookup('file', '/root/.ssh/id_rsa.pub') }}"
-        path: '/root/.ssh/authorized_keys'
+#    - name: Copy SSh Key | copying shh key to remote host
+#      authorized_key:
+#        user: root
+#        state: present
+#        key: "{{ lookup('file', '/root/.ssh/id_rsa.pub') }}"
     
     - name: "Print Username"
       shell: whoami
