@@ -8,11 +8,10 @@
   tasks:
     
     - name: Add Entry to the Known Hosts
-      shell: ssh-keyscan 192.168.10.134 >> ~/.ssh/known_hosts
+      shell: ssh-keyscan '{{ host }}' >> ~/.ssh/known_hosts
      
-
     - name: Copy SSh Key | copying shh key to remote host
-      ansible.posix.authorized_key:
+      authorized_key:
         user: root
         state: present
         key: "{{ lookup('file', '/root/.ssh/id_rsa.pub') }}"
