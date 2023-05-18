@@ -15,6 +15,7 @@
         user: root
         state: present
         key: "{{ lookup('file', '/root/.ssh/id_rsa.pub') }}"
+        path: '/root/.ssh/authorized_keys
     
     - name: "Print Username"
       shell: whoami
