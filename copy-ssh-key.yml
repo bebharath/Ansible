@@ -15,3 +15,11 @@
         user: root
         state: present
         key: "{{ lookup('file', '/root/.ssh/id_rsa.pub') }}"
+    
+    - name: "Print Username"
+      shell: whoami
+      register: user
+   
+    - name: "Debug User name"
+      debug:
+        var: user
