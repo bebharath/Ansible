@@ -19,10 +19,17 @@
     - name: "Creating Oinstall and DBA Groups"
       group:
         name: "{{ item }}"
-        state: absent
+        state: present
       loop:
         - oinstall
         - dba
+   
+    - name: " Creating Oracle User"
+      user:
+        name: oracle
+        shell: /bin/bash
+        groups: oinstall,dba
+        append: yes
   
     - name: "Print Username"
       shell: whoami
