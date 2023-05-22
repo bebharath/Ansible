@@ -30,6 +30,12 @@
         shell: /bin/bash
         groups: oinstall,dba
         append: yes
+    
+    - name: "Adding oracle to Oinstall as primary"
+      shell: "{{ item }}"
+      loop:
+        - usermod -g oinstall oracle
+        - usermod -a -G dba oracle
   
     - name: "Print Username"
       shell: whoami
