@@ -18,9 +18,9 @@
     
     - name: "Creating Oinstall and DBA Groups"
       group:
-        name: {{ item }}
-        state: present
-      with_items:
+        name: "{{ item }}"
+        state: absent
+      loop:
         - oinstall
         - dba
   
