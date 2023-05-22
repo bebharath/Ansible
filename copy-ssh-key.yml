@@ -16,10 +16,18 @@
 #        state: present
 #        key: "{{ lookup('file', '/root/.ssh/id_rsa.pub') }}"
     
+    - name: "Creating Oinstall and DBA Groups"
+      group:
+        name: { item }
+        state: present
+      loop:
+        - oinstall
+        - dba
+  
     - name: "Print Username"
       shell: whoami
       register: user
-  
+
     - name: "Debug User name"
       debug:
         var: user
