@@ -1,0 +1,25 @@
+---
+- name: Installing the required rpm for Oracle RDBMS
+  yum:
+    name: "{{ item }}"
+    state: present
+  loop:
+    - binutils 
+    - compat-libcap1 
+    - gcc 
+    - gcc-c++ 
+    - glibc 
+    - glibc-devel 
+    - ksh 
+    - compat-libstdc++-33 
+    - libaio 
+    - libaio-devel 
+    - libgcc 
+    - libstdc++ 
+    - libstdc++-devel 
+    - libXi 
+    - libXtst 
+    - make 
+    - sysstat 
+    - zip 
+    - unzip

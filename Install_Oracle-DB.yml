@@ -1,0 +1,12 @@
+- name: copying ssh key and updating sudoers
+  hosts: '{{ host }}'
+  gather_facts: false
+  remote_user: root
+  become: yes
+
+  tasks:
+  
+    - name: "Installing Oracle Database"
+      include_role:
+        name: Oracle-install
+
